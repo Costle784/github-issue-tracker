@@ -2,12 +2,13 @@
     font-family: "Courier New", Courier, monospace;
     background-color: #fff;
     min-height: 100vh;
+    padding: 2em;
+    color: #eb7100;
 }
 
 .app-header {
     font-size: 2em;
+    padding-bottom: 1em;
     font-style: italic;
-    color: #eb7100;
     font-weight: 800;
-    padding: 1em;
 }
