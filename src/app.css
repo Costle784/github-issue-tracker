@@ -1,14 +1,43 @@
 .app {
     font-family: "Courier New", Courier, monospace;
     background-color: #fff;
-    min-height: 100vh;
-    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
     color: #eb7100;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-weight: 800;
 }
 
 .app-header {
-    font-size: 2em;
-    padding-bottom: 1em;
     font-style: italic;
-    font-weight: 800;
+    border-bottom: 1px solid;
+}
+
+.input-wrapper {
+    flex-grow: 1;
+    margin: 10% auto;
+    width: 30%;
+}
+
+.input-container {
+    color: #000000;
+    font-size: 2em;
+    text-align: center;
+}
+
+input {
+    height: 2em;
+    width: 50%;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.submit-button {
+    background-color: #eb7100;
+    width: 12em;
+    border-radius: 8px;
+    border: None;
+    padding: 5px;
 }
