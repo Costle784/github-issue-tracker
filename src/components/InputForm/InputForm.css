@@ -1,0 +1,31 @@
+.form-container {
+    margin: 10% auto;
+    width: 30%;
+    font-size: 2em;
+    text-align: center;
+}
+
+form * {
+    display: block;
+}
+
+.api-key-input {
+    height: 2em;
+    width: 50%;
+    border-radius: 8px;
+    padding: 3px;
+    margin: 1em auto;
+}
+
+.submit-button {
+    background-color: #eb7100;
+    width: 12em;
+    border-radius: 8px;
+    border: None;
+    padding: 8px;
+    margin: 0 auto;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+}

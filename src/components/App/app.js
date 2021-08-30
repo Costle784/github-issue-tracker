@@ -1,8 +1,7 @@
 import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import ApiKeyInput from "./components/ApiKeyInput";
-import GithubIssues from "./components/GithubIssues";
+import InputForm from "../InputForm/InputForm";
+import Repos from "../Repos/Repos";
 
 function App() {
     return (
@@ -12,8 +11,8 @@ function App() {
             </header>
             <Router>
                 <Switch>
-                    <Route exact path="/" component={ApiKeyInput}></Route>
-                    <Route path="/issues" component={GithubIssues} />
+                    <Route exact path="/" component={InputForm}></Route>
+                    <Route path="/repos" component={Repos} />
                 </Switch>
             </Router>
         </div>

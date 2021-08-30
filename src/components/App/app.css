@@ -1,0 +1,13 @@
+.app {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #fff;
+    padding: 0 1em;
+    color: #eb7100;
+    min-height: 100vh;
+    font-weight: 800;
+}
+
+.app-header {
+    font-style: italic;
+    border-bottom: 1px solid;
+}
