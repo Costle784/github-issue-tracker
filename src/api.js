@@ -1,11 +1,14 @@
-import { store } from "./index";
-
 const BASE_URL = "https://api.github.com";
 // const REPOS = "user/repos";
 // Use public repositories endpoint for more open issues if necessary
 const REPOS = "repositories";
 
-const makeRequest = async function (url, key) {
+const makeGETRequest = async function (resourceUrl, key, params = {}) {
+    console.log(params);
+    const url = new URL(resourceUrl);
+    url.search = new URLSearchParams(params).toString();
+    console.log(url);
+
     let res = await fetch(url, {
         headers: {
             Accept: "application/vnd.github.v3+json",
@@ -20,9 +23,9 @@ const makeRequest = async function (url, key) {
 
 export const API = {
     getRepos(key) {
-        return makeRequest(`${BASE_URL}/${REPOS}`, key);
+        return makeGETRequest(`${BASE_URL}/${REPOS}`, key);
     },
-    getIssues(key, issuesUrl) {
-        return makeRequest(issuesUrl, key);
+    getIssues(key, issuesUrl, params = {}) {
+        return makeGETRequest(issuesUrl, key, params);
     },
 };

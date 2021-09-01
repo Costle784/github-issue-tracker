@@ -7,15 +7,10 @@ import "./Repos.css";
 
 export default function Repos() {
     const [selectedRepo, setSelectedRepo] = useState(null);
+    const [sortPreference, setSortPreference] = useState({});
     const inputForm = useSelector((state) => state.inputForm);
     const { githubRepos, loadingRepos } = useSelector((state) => state.repos);
     const issues = useSelector((state) => state.issues);
-    // Set loading state for Repos + Issues
-    // Update Datetimes to be right format
-    // Create filter logic + UI
-    // Write a media query
-    // Write a test
-
     const history = useHistory();
     const dispatch = useDispatch();
     const redirect = () => history.push("/");
@@ -32,11 +27,18 @@ export default function Repos() {
 
     useEffect(() => {
         if (selectedRepo && selectedRepo.issues_url) {
-            console.log(selectedRepo);
             const url = selectedRepo.issues_url.split("{")[0];
-            dispatch(handleIssues(inputForm.apiKey, url));
+            dispatch(handleIssues(inputForm.apiKey, url, sortPreference));
         }
-    }, [selectedRepo]);
+    }, [selectedRepo, sortPreference]);
+
+    const updateSort = (sort, direction) => {
+        const preference = {
+            sort,
+            direction,
+        };
+        setSortPreference(preference);
+    };
 
     return (
         <main className="main-wrapper">
@@ -72,8 +74,44 @@ export default function Repos() {
                             <tr>
                                 <th>Avatar</th>
                                 <th>Title</th>
-                                <th>Created</th>
-                                <th>Last Updated</th>
+                                <th className="sortable-column">
+                                    <span>Created</span>
+                                    {sortPreference.sort === "created" &&
+                                    sortPreference.direction === "asc" ? (
+                                        <i
+                                            className="fas fa-arrow-up"
+                                            onClick={() =>
+                                                updateSort("created", "desc")
+                                            }
+                                        ></i>
+                                    ) : (
+                                        <i
+                                            className="fas fa-arrow-down"
+                                            onClick={() =>
+                                                updateSort("created", "asc")
+                                            }
+                                        ></i>
+                                    )}
+                                </th>
+                                <th className="sortable-column">
+                                    <span>Last Updated</span>
+                                    {sortPreference.sort === "updated" &&
+                                    sortPreference.direction === "asc" ? (
+                                        <i
+                                            className="fas fa-arrow-up"
+                                            onClick={() =>
+                                                updateSort("updated", "desc")
+                                            }
+                                        ></i>
+                                    ) : (
+                                        <i
+                                            className="fas fa-arrow-down"
+                                            onClick={() =>
+                                                updateSort("updated", "asc")
+                                            }
+                                        ></i>
+                                    )}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

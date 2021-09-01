@@ -8,9 +8,9 @@ function fetchIssuesAction(issues) {
     };
 }
 
-export function handleIssues(key, url) {
+export function handleIssues(key, url, params) {
     return (dispatch) => {
-        return API.getIssues(key, url)
+        return API.getIssues(key, url, params)
             .then((res) => {
                 dispatch(fetchIssuesAction(res));
             })

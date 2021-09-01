@@ -2,6 +2,7 @@ import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InputForm from "../InputForm/InputForm";
 import Repos from "../Repos/Repos";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
     return (
