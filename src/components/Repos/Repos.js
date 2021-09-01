@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { handleRepos } from "../../actions/repos";
 import { handleIssues } from "../../actions/issues";
 import { useDispatch, useSelector } from "react-redux";
+import { sessionAPI, formatDate } from "../../utils";
 import "./Repos.css";
 
 export default function Repos() {
@@ -14,6 +15,15 @@ export default function Repos() {
     const history = useHistory();
     const dispatch = useDispatch();
     const redirect = () => history.push("/");
+
+    const userSortPreference = sessionAPI.getSessionItem("sortPreference");
+
+    if (
+        userSortPreference &&
+        userSortPreference !== JSON.stringify(sortPreference)
+    ) {
+        setSortPreference(JSON.parse(userSortPreference));
+    }
 
     if (!inputForm.apiKey) {
         redirect();
@@ -37,6 +47,7 @@ export default function Repos() {
             sort,
             direction,
         };
+        sessionAPI.setSessionItem("sortPreference", JSON.stringify(preference));
         setSortPreference(preference);
     };
 
@@ -125,15 +136,17 @@ export default function Repos() {
                                         />
                                     </td>
                                     <td>{issue.title}</td>
-                                    <td>{issue.created_at}</td>
-                                    <td>{issue.updated_at}</td>
+                                    <td>{formatDate(issue.created_at)}</td>
+                                    <td>{formatDate(issue.updated_at)}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                ) : (
-                    <h3>Please Select a Repo to view issues...</h3>
-                )}
+                ) : issues.length === 0 && !selectedRepo ? (
+                    <h3>Please Select a Repo to view issues.</h3>
+                ) : selectedRepo && issues.length === 0 ? (
+                    <h3>No issues created in Repo.</h3>
+                ) : null}
             </section>
         </main>
     );

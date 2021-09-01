@@ -50,3 +50,7 @@ th {
 .sortable-column i {
     margin-left: 1em;
 }
+
+.sortable-column i:hover {
+    cursor: pointer;
+}

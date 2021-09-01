@@ -7,7 +7,6 @@ const makeGETRequest = async function (resourceUrl, key, params = {}) {
     console.log(params);
     const url = new URL(resourceUrl);
     url.search = new URLSearchParams(params).toString();
-    console.log(url);
 
     let res = await fetch(url, {
         headers: {
