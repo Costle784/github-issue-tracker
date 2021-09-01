@@ -1,9 +1,12 @@
-import { RECEIVE_DATA } from "../actions/repos";
+import { FETCH_REPOS } from "../actions/repos";
 
-export default function repos(state = [], action) {
+export default function repos(state = { loadingRepos: true }, action) {
     switch (action.type) {
-        case RECEIVE_DATA:
-            return action.repos;
+        case FETCH_REPOS:
+            return {
+                loadingRepos: false,
+                githubRepos: action.repos,
+            };
         default:
             return state;
     }

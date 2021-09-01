@@ -1,8 +1,9 @@
+import { store } from "./index";
+
 const BASE_URL = "https://api.github.com";
-
-const REPOS = "user/repos";
-
-const ISSUES_PATH = ``;
+// const REPOS = "user/repos";
+// Use public repositories endpoint for more open issues if necessary
+const REPOS = "repositories";
 
 const makeRequest = async function (url, key) {
     let res = await fetch(url, {
@@ -20,5 +21,8 @@ const makeRequest = async function (url, key) {
 export const API = {
     getRepos(key) {
         return makeRequest(`${BASE_URL}/${REPOS}`, key);
+    },
+    getIssues(key, issuesUrl) {
+        return makeRequest(issuesUrl, key);
     },
 };

@@ -1,22 +1,22 @@
 import { API } from "../api";
-export const RECEIVE_DATA = "RECEIVE_DATA";
+export const FETCH_REPOS = "FETCH_REPOS";
 
-function receiveDataAction(repos) {
+function fetchReposAction(repos) {
     return {
-        type: RECEIVE_DATA,
+        type: FETCH_REPOS,
         repos,
     };
 }
 
-export function handleRepos(key, history) {
+export function handleRepos(key, redirect) {
     return (dispatch) => {
         return API.getRepos(key)
             .then((res) => {
-                dispatch(receiveDataAction(res));
+                dispatch(fetchReposAction(res));
             })
             .catch((e) => {
                 console.error(e);
-                history.push("/");
+                redirect();
             });
     };
 }
