@@ -10,7 +10,11 @@ export default function Repos() {
     const inputForm = useSelector((state) => state.inputForm);
     const { githubRepos, loadingRepos } = useSelector((state) => state.repos);
     const issues = useSelector((state) => state.issues);
-    // Set loading state for Repos
+    // Set loading state for Repos + Issues
+    // Update Datetimes to be right format
+    // Create filter logic + UI
+    // Write a media query
+    // Write a test
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -63,7 +67,7 @@ export default function Repos() {
             <section>
                 <h2>Issues</h2>
                 {issues.length > 0 ? (
-                    <table>
+                    <table className="issues-table">
                         <thead>
                             <tr>
                                 <th>Avatar</th>

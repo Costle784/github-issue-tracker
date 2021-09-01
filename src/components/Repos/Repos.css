@@ -1,11 +1,11 @@
 .main-wrapper {
     display: flex;
 }
-section > h2 {
-    text-decoration: underline;
+section:first-child {
+    margin-right: 1em;
 }
 
-.section-title {
+section > h2 {
     text-decoration: underline;
 }
 
@@ -18,14 +18,31 @@ section > h2 {
     height: 40px;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 5px;
-    table-layout: fixed;
+.issues-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
     width: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    table-layout: fixed;
 }
 
-th {
+.issues-table th,
+.issues-table td {
+    padding: 12px 15px;
+    word-wrap: break-word;
+}
+
+.issues-table th {
     font-size: 1.5em;
     text-align: left;
+}
+
+.issues-table tbody tr,
+th {
+    border-bottom: 1px solid #dddddd;
+}
+
+.issues-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
 }
