@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import { handleRepos } from "../../actions/repos";
 import { handleIssues } from "../../actions/issues";
 import { useDispatch, useSelector } from "react-redux";
-import { sessionAPI, formatDate } from "../../utils";
+import { sessionAPI } from "../../utils";
+import moment from "moment";
 import "./Repos.css";
 
 export default function Repos() {
@@ -15,7 +16,6 @@ export default function Repos() {
     const history = useHistory();
     const dispatch = useDispatch();
     const redirect = () => history.push("/");
-
     const userSortPreference = sessionAPI.getSessionItem("sortPreference");
 
     if (
@@ -136,8 +136,14 @@ export default function Repos() {
                                         />
                                     </td>
                                     <td>{issue.title}</td>
-                                    <td>{formatDate(issue.created_at)}</td>
-                                    <td>{formatDate(issue.updated_at)}</td>
+                                    <td>
+                                        {moment(issue.created_at).format(
+                                            "MM/DD/YYYY"
+                                        )}
+                                    </td>
+                                    <td>
+                                        {moment(issue.updated_at).fromNow()}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

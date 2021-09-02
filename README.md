@@ -1,20 +1,22 @@
 # Github Issue Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### An interface to view/prioritize github issues
 
-## Available Scripts
+## Technologies used
 
-In the project directory, you can run:
+-   React - bootstrapped with create-react-app
+-   React Hooks
+-   React Router
+-   Redux
+-   Redux Thunk
+-   Jest
 
-### `npm start`
+## Installation and Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   Create an API Key in Github - Repos is a required scope.
+-   For testing (if necessary) - uncomment public repositores path in api.js (`/repositories`) to fetch repos that have many issues spanning multiple years.
+-   clone repo
+-   npm install
+-   npm start (should automatically open browser pointing to `localhost:3000`)
+-   Input your API key and press 'submit'
+-   Sortable fields are 'Created' and 'Last Updated'. Sort selection will persist as long as your browser tab remains open.

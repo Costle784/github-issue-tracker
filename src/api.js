@@ -1,7 +1,7 @@
 const BASE_URL = "https://api.github.com";
-// const REPOS = "user/repos";
+const REPOS = "user/repos";
 // Use public repositories endpoint for more open issues if necessary
-const REPOS = "repositories";
+// const REPOS = "repositories";
 
 const makeGETRequest = async function (resourceUrl, key, params = {}) {
     const url = new URL(resourceUrl);
