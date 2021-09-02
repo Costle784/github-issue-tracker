@@ -53,10 +53,10 @@ export default function Repos() {
 
     return (
         <main className="main-wrapper">
-            <section>
-                <h2>Repos</h2>
+            <section className="repos-section">
+                <h2 className="sub-header">Repos</h2>
                 {!loadingRepos ? (
-                    <ul>
+                    <ul className="repo-list">
                         {githubRepos.map((repo) => (
                             <li
                                 style={{
@@ -77,8 +77,8 @@ export default function Repos() {
                     <h3>Loading...</h3>
                 )}
             </section>
-            <section>
-                <h2>Issues</h2>
+            <section className="issues-section">
+                <h2 className="sub-header">Issues</h2>
                 {issues.length > 0 ? (
                     <table className="issues-table">
                         <thead>

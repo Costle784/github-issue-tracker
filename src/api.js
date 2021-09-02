@@ -4,7 +4,6 @@ const BASE_URL = "https://api.github.com";
 const REPOS = "repositories";
 
 const makeGETRequest = async function (resourceUrl, key, params = {}) {
-    console.log(params);
     const url = new URL(resourceUrl);
     url.search = new URLSearchParams(params).toString();
 

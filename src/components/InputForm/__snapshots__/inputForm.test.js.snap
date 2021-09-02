@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`API key form snapshot test should render a form to input an API key 1`] = `
+<div
+  className="form-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Input API Key: 
+    </label>
+    <input
+      className="api-key-input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="submit-button"
+      disabled={true}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
